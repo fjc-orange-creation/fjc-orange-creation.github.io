@@ -1,6 +1,6 @@
 :root {
   --color-text: #000;
-  --color-background: #fff;
+  --color-background: linear-gradient(120deg, #f30, #c6f, #0cf);
   --color-link: #f30;
   --color-clear: #f3f3f3;
   --color-shadow: transparent;

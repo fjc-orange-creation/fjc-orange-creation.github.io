@@ -21,7 +21,7 @@ self.addEventListener('active', function () {
 });
 
 var precacheUrls = [
-'/','/posts/38499/','/posts/16107/','/posts/55821/','/posts/54465/','/about/index.html','/categories/index.html','/extension/content.json','/icons/index.html','/gallery/index.html','/library/index.html','/letter/index.html','/records/index.html','/records/content.json','/tags/index.html','/resume/index.html','/extension/letter/index.css','/extension/letter/index.js','/extension/resume/index.js','/extension/resume/index.css','/extension/test/index.html','/extension/letter/chinese/data.json','/extension/letter/english/data.json','/extension/letter/chinese/index.html','/extension/resume/chinese/data.json','/extension/letter/english/index.html','/extension/resume/chinese/index.html','/extension/resume/english/data.json','/extension/resume/english/index.html',
+'/','/posts/38499/','/posts/16107/','/posts/55821/','/posts/54465/','/about/index.html','/extension/content.json','/categories/index.html','/gallery/index.html','/icons/index.html','/letter/index.html','/library/index.html','/records/content.json','/records/index.html','/tags/index.html','/resume/index.html','/extension/letter/index.js','/extension/letter/index.css','/extension/test/index.html','/extension/resume/index.js','/extension/resume/index.css','/extension/letter/english/data.json','/extension/letter/english/index.html','/extension/letter/chinese/data.json','/extension/letter/chinese/index.html','/extension/resume/chinese/data.json','/extension/resume/chinese/index.html','/extension/resume/english/index.html','/extension/resume/english/data.json',
 ];
 toolbox.precache(precacheUrls);
 toolbox.options = {"networkTimeoutSeconds":5};

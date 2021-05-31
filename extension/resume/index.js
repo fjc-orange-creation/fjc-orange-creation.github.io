@@ -1,5 +1,4 @@
-function fillAvatar(data) {
-  var avatar = document.querySelector('#avatar');
+function fillAvatar(data) {var avatar = document.querySelector('#avatar');
   var photo = document.createElement('img');
   var fileOpen = document.createElement('input');
   photo.id = 'photo';
@@ -9,27 +8,21 @@ function fillAvatar(data) {
   fileOpen.accept = 'image/*';
   avatar.appendChild(photo);
   avatar.appendChild(fileOpen);
-  fileOpen.onchange = function () {
-    var file = fileOpen.files[0];
-    if (file) {
-      var reader = new FileReader();
+  fileOpen.onchange = function () {var file = fileOpen.files[0];
+    if (file) {var reader = new FileReader();
       reader.readAsDataURL(file);
-      reader.onload = function () {
-        photo.src = reader.result;
-      }
+      reader.onload = function () {photo.src = reader.result;}
     }
   };
 }
 
-function fillBrand(data) {
-  var name = document.querySelector('#name');
+function fillBrand(data) {var name = document.querySelector('#name');
   name.innerHTML = data.resume.side.brand.name;
   var position = document.querySelector('#position');
   position.innerHTML = data.resume.side.brand.position;
 }
 
-function fillPersonal(data) {
-  var address = document.querySelector('#address');
+function fillPersonal(data) {var address = document.querySelector('#address');
   address.innerHTML = data.resume.side.personal.address;
   var phone = document.querySelector('#phone');
   phone.innerHTML = data.resume.side.personal.phone;
@@ -41,8 +34,7 @@ function fillPersonal(data) {
   github.innerHTML = data.resume.side.personal.github;
 }
 
-function fillSkill(data) {
-  var frontend = document.querySelector('#frontend');
+function fillSkill(data) {var frontend = document.querySelector('#frontend');
   frontend.innerHTML = data.resume.side.skill.frontend;
   var backend = document.querySelector('#backend');
   backend.innerHTML = data.resume.side.skill.backend;
@@ -52,14 +44,12 @@ function fillSkill(data) {
   tool.innerHTML = data.resume.side.skill.tool;
 }
 
-function fillLanguage(data) {
-  var language = document.querySelector('#language');
+function fillLanguage(data) {var language = document.querySelector('#language');
   if (!language) return;
   var ruler = language.querySelector('.ruler');
   var desc = language.querySelector('.desc');
   var languages = data.resume.side.language;
-  languages.forEach(function (lang) {
-    var block = document.createElement('div');
+  languages.forEach(function (lang) {var block = document.createElement('div');
     block.style.width = lang.data + '%';
     ruler.appendChild(block);
     var name = document.createElement('div');
@@ -68,17 +58,14 @@ function fillLanguage(data) {
   });
 }
 
-function fillIntro(data) {
-  var intro = document.querySelector('#intro');
+function fillIntro(data) {var intro = document.querySelector('#intro');
   intro.innerHTML = data.resume.main.intro;
 }
 
-function fillEducation(data) {
-  var html = document.querySelector('html');
+function fillEducation(data) {var html = document.querySelector('html');
   var education = document.querySelector('#education');
   var edus = data.resume.main.education;
-  edus.forEach(function (edu) {
-    var table = document.createElement('table');
+  edus.forEach(function (edu) {var table = document.createElement('table');
     var tr0 = document.createElement('tr');
     var tr1 = document.createElement('tr');
 
@@ -100,8 +87,7 @@ function fillEducation(data) {
     table.appendChild(tr0);
     table.appendChild(tr1);
 
-    if (edu.extend) {
-      var tr2 = document.createElement('tr');
+    if (edu.extend) {var tr2 = document.createElement('tr');
       var extend = document.createElement('td');
       var ruler = document.createElement('div');
       var desc = document.createElement('div');
@@ -110,9 +96,7 @@ function fillEducation(data) {
       extend.appendChild(ruler);
       extend.appendChild(desc);
       var gridWidth = 100 / edu.semester;
-      edu.extend.forEach(function (ex, i) {
-        if (ex.data.length === 2) {
-          var block = document.createElement('div');
+      edu.extend.forEach(function (ex, i) {if (ex.data.length === 2) {var block = document.createElement('div');
           var sub = document.createElement('div');
           sub.className = 'sub';
           sub.setAttribute('data-num', i + 1);
@@ -133,12 +117,10 @@ function fillEducation(data) {
       table.appendChild(tr2);
     }
 
-    if (edu.desc) {
-      var tr3 = document.createElement('tr');
+    if (edu.desc) {var tr3 = document.createElement('tr');
       var desc = document.createElement('td');
       var ul = document.createElement('ul');
-      edu.desc.forEach(function (text) {
-        var li = document.createElement('li');
+      edu.desc.forEach(function (text) {var li = document.createElement('li');
         li.innerHTML = text;
         ul.appendChild(li);
       });
@@ -151,11 +133,9 @@ function fillEducation(data) {
   });
 }
 
-function fillProject(data) {
-  var project = document.querySelector('#project');
+function fillProject(data) {var project = document.querySelector('#project');
   var projs = data.resume.main.project;
-  projs.forEach(function (proj) {
-    var table = document.createElement('table');
+  projs.forEach(function (proj) {var table = document.createElement('table');
     var tr0 = document.createElement('tr');
 
     var title = document.createElement('td');
@@ -171,8 +151,7 @@ function fillProject(data) {
     var tr1 = document.createElement('tr');
     var desc = document.createElement('td');
     var ul = document.createElement('ul');
-    proj.desc.forEach(function (text) {
-      var li = document.createElement('li');
+    proj.desc.forEach(function (text) {var li = document.createElement('li');
       li.innerHTML = text;
       ul.appendChild(li);
     });
@@ -184,11 +163,9 @@ function fillProject(data) {
   });
 }
 
-function fillExperience(data) {
-  var experience = document.querySelector('#experience');
+function fillExperience(data) {var experience = document.querySelector('#experience');
   var exps = data.resume.main.experience;
-  exps.forEach(function (exp) {
-    var table = document.createElement('table');
+  exps.forEach(function (exp) {var table = document.createElement('table');
     var tr0 = document.createElement('tr');
     var tr1 = document.createElement('tr');
 
@@ -211,8 +188,7 @@ function fillExperience(data) {
     var tr2 = document.createElement('tr');
     var desc = document.createElement('td');
     var ul = document.createElement('ul');
-    exp.desc.forEach(function (text) {
-      var li = document.createElement('li');
+    exp.desc.forEach(function (text) {var li = document.createElement('li');
       li.innerHTML = text;
       ul.appendChild(li);
     });
@@ -224,17 +200,13 @@ function fillExperience(data) {
   });
 }
 
-function highlight(data) {
-  if (Array.isArray(data.keyword) && data.keyword.length) {
-    var main = document.querySelector('#main');
-    data.keyword.forEach(function (word) {
-      main.innerHTML = main.innerHTML.replace(word, '<strong>' + word + '</strong>');
+function highlight(data) {if (Array.isArray(data.keyword) && data.keyword.length) {var main = document.querySelector('#main');
+    data.keyword.forEach(function (word) {main.innerHTML = main.innerHTML.replace(word, '<strong>' + word + '</strong>');
     });
   }
 }
 
-function fixResume(paper, custom) {
-  var resume = document.querySelector('#resume');
+function fixResume(paper, custom) {var resume = document.querySelector('#resume');
   var side = document.querySelector('#side');
   custom && (resume.style.maxWidth = custom);
   switch (paper.toLowerCase()) {
@@ -247,16 +219,12 @@ function fixResume(paper, custom) {
   side.style.height = resume.offsetHeight + 'px';
 }
 
-function setPrint() {
-  var print = document.querySelector('#print');
-  print.onclick = function () {
-    window.print ? window.print() : document.execCommand('print');
+function setPrint() {var print = document.querySelector('#print');
+  print.onclick = function () {window.print ? window.print() : document.execCommand('print');
   }
 }
 
-function generate(data) {
-  if (typeof data === 'object' && data.resume) {
-    fillAvatar(data);
+function generate(data) {if (typeof data === 'object' && data.resume) {fillAvatar(data);
     fillBrand(data);
     fillPersonal(data);
     fillSkill(data);
@@ -267,22 +235,17 @@ function generate(data) {
     fillProject(data);
     highlight(data);
     fixResume(data.size, data.custom_width);
-    setPrint();
-  }
+    setPrint();}
 }
 
-function getJSON(options) {
-  if (!options.url) return;
+function getJSON(options) {if (!options.url) return;
   var request = new XMLHttpRequest();
   request.open('get', options.url);
   request.responseType = 'json';
-  request.addEventListener('readystatechange', function () {
-    if (request.readyState === 4 && request.status === 200 && request.response) {
-      options.success && options.success(request.response);
+  request.addEventListener('readystatechange', function () {if (request.readyState === 4 && request.status === 200 && request.response) {options.success && options.success(request.response);
     }
   });
-  request.send();
-}
+  request.send();}
 
 getJSON({
   url: 'data.json',

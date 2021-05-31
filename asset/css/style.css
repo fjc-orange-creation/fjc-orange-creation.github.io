@@ -1,11 +1,11 @@
 :root {
   --color-text: #000;
-  --color-background: linear-gradient(120deg, #f30, #c6f, #0cf);
+  --color-background: #fff;
   --color-link: #f30;
   --color-clear: #f3f3f3;
   --color-shadow: transparent;
   --color-error: #933;
-  --color-body-back: #666;
+  --color-body-back: linear-gradient(120deg, #f30, #c6f, #0cf);
   --color-header-text: #333;
   --color-header-background: #fff;
   --color-spinner-front: #333;

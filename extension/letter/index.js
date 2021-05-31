@@ -1,9 +1,16 @@
-function getDateFormat(lang) {if (typeof lang === 'string') {if (lang.startsWith('zh')) {return 'YYYY 年 MM 月 DD 日 ddd A h:mm:ss';} else {return 'dddd, Do MMM. YYYY, h:mm:ss A';}
+function getDateFormat(lang) {
+  if (typeof lang === 'string') {
+    if (lang.startsWith('zh')) {
+      return 'YYYY年MM月DD日 ddd A h:mm:ss';
+    } else {
+      return 'dddd, Do MMM. YYYY, h:mm:ss A';
+    }
   }
   return '';
 }
 
-function fillBrand(data) {var brand = document.querySelector('#brand');
+function fillBrand(data) {
+  var brand = document.querySelector('#brand');
   var name = document.querySelector('#name');
   var position = document.querySelector('#position');
   var date = document.querySelector('#date');
@@ -21,23 +28,27 @@ function fillBrand(data) {var brand = document.querySelector('#brand');
   data.phone && (phone.innerHTML = data.phone);
   data.address && (address.innerHTML = data.address);
 
-  if (data.www) {var a = document.createElement('a');
+  if (data.www) {
+    var a = document.createElement('a');
     a.target = '_blank';
     a.innerText = a.href = data.www;
     www.appendChild(a);
   }
-  if (data.linkedin) {var a = document.createElement('a');
+  if (data.linkedin) {
+    var a = document.createElement('a');
     a.target = '_blank';
     a.innerText = a.href = data.linkedin;
     linkedin.appendChild(a);
   }
-  if (data.github) {var a = document.createElement('a');
+  if (data.github) {
+    var a = document.createElement('a');
     a.target = '_blank';
     a.innerText = a.href = data.github;
     github.appendChild(a);
   }
 
-  brand.querySelectorAll('[data-icon]').forEach(function (icon) {var i = document.createElement('i');
+  brand.querySelectorAll('[data-icon]').forEach(function (icon) {
+    var i = document.createElement('i');
     i.className = icon.getAttribute('data-icon');
     icon.appendChild(i);
   });
@@ -46,10 +57,12 @@ function fillBrand(data) {var brand = document.querySelector('#brand');
   var dateFormat = getDateFormat(lang);
   moment.locale(lang);
   date.innerHTML = moment().format(dateFormat);
-  window.setInterval(function () {date.innerHTML = moment().format(dateFormat);
+  window.setInterval(function () {
+    date.innerHTML = moment().format(dateFormat);
   }, 1000);
 
-  if (data.position && data.position.length) {var select = document.createElement('select');
+  if (data.position && data.position.length) {
+    var select = document.createElement('select');
     select.onchange = function (e) {
       getCL({
         url: this.value,
@@ -62,7 +75,9 @@ function fillBrand(data) {var brand = document.querySelector('#brand');
       });
     }
     position.appendChild(select);
-    data.position.forEach(function (pos, i) {if (i === 0) {var placeholder = document.createElement('option');
+    data.position.forEach(function (pos, i) {
+      if (i === 0) {
+        var placeholder = document.createElement('option');
         placeholder.text = position.getAttribute('data-placeholder');
         placeholder.disabled = true;
         placeholder.selected = true;
@@ -77,13 +92,15 @@ function fillBrand(data) {var brand = document.querySelector('#brand');
       var step = 2;
       var accelerate = 2;
       var current = window.scrollY;
-      var ani = requestAnimationFrame(function fn() {if (window.scrollY < body.offsetTop - accelerate) {
+      var ani = requestAnimationFrame(function fn() {
+        if (window.scrollY < body.offsetTop - accelerate) {
           current = current + step;
           step = step + accelerate;
           accelerate = accelerate * 1.2;
           window.scrollTo(0, current);
           ani = requestAnimationFrame(fn);
-        } else {window.scrollTo(0, body.offsetTop);
+        } else {
+          window.scrollTo(0, body.offsetTop);
           cancelAnimationFrame(ani);
         }
       });
@@ -91,27 +108,37 @@ function fillBrand(data) {var brand = document.querySelector('#brand');
   }
 }
 
-function generate(data) {if (typeof data === 'object') {fillBrand(data);
+function generate(data) {
+  if (typeof data === 'object') {
+    fillBrand(data);
   }
 }
 
-function getCL(options) {if (!options.url) return;
+function getCL(options) {
+  if (!options.url) return;
   var request = new XMLHttpRequest();
   request.open('get', options.url);
   request.responseType = 'text';
-  request.addEventListener('readystatechange', function () {if (request.readyState === 4 && request.status === 200 && request.response) {options.success && options.success(request.response);
+  request.addEventListener('readystatechange', function () {
+    if (request.readyState === 4 && request.status === 200 && request.response) {
+      options.success && options.success(request.response);
     }
   });
-  request.send();}
+  request.send();
+}
 
-function getJSON(options) {if (!options.url) return;
+function getJSON(options) {
+  if (!options.url) return;
   var request = new XMLHttpRequest();
   request.open('get', options.url);
   request.responseType = 'json';
-  request.addEventListener('readystatechange', function () {if (request.readyState === 4 && request.status === 200 && request.response) {options.success && options.success(request.response);
+  request.addEventListener('readystatechange', function () {
+    if (request.readyState === 4 && request.status === 200 && request.response) {
+      options.success && options.success(request.response);
     }
   });
-  request.send();}
+  request.send();
+}
 
 getJSON({
   url: 'data.json',

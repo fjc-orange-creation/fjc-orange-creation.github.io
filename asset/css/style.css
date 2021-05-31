@@ -47,7 +47,7 @@
   --color-text: #fff;
   --color-background: #000;
   --color-link: #f30;
-  --color-clear: #f1f1f1;
+  --color-clear: #000;
   --color-shadow: rgba(51,51,51,0.4);
   --color-error: #933;
   --color-body-back: linear-gradient(120deg, #f30, #c6f, #0cf);

@@ -983,7 +983,7 @@ a {
   :root.gray:not(.night) .p-iconlib,
   :root.gray:not(.night) .m-aside-clustrmaps {
     border-width: 2px;
-    border-color: #ccc;
+    border-color: #333;
   }
 }
 :root.gray:not(.night) .p-adframe-qrcode,
